@@ -1,0 +1,43 @@
+<!-- // Student Name: Saurabh
+// Student ID: 1223450319
+// Date: 09/02/2023 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>    
+<body>
+    <form action="/calculate" method="POST">
+        <input type="number" name="num1" placeholder="Enter first number" required>
+        <input type="number" name="num2" placeholder="Enter second number" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+    <h1>Calculation Results:</h1>
+    <p>Sum: <%= sum %> </p>
+    <p>Difference: <%= difference %></p>
+    <p>Product: <%= product %></p>
+    <p>Quotient: <%= quotient %></p>
+
+    <!-- Javascript logic for conditional operation -->
+    <% if (sum%2==0) { %>
+        <p >The sum <%= sum %> is even</p>
+    <% } else { %>
+        <p>The sum <%= sum %> is odd</p>
+    <% } %>
+
+    <!-- Javascript logic for iteration -->
+    <h2>List of Numbers:</h2>
+    <ul>
+        <% for (let i = 1; i <= 10; i++) { %>
+            <% if (i % 2 === 0) { %>
+                <li style="color: blue;"><%= i %></li>
+            <% } else { %>
+                <li><%= i %></li>
+            <% } %>
+        <% } %>
+    </ul>
+</body>
+</html>
