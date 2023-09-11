@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        create user
+    </title>
+    <body>
+        <h1>User Information:</h1>
+        <p>Name: <%= userName %></p>
+        <p>Age: <%= userAge %></p>
+        <p>Email: <%= userEmail %></p>
+
+        <br>
+        <form action="/createUser" method="POST">
+            <label>Name: </label><input type="text" name="name" placeholder="name" required><br><br>
+            <label>Age: </label><input type="number" name="age" placeholder="age" required><br><br>
+            <label>Email: </label><input type="email" name="email" placeholder="email" required><br><br>
+            <button type="submit">Add User</button>
+        </form>
+    </body>
+</html>
