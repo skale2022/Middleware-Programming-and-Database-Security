@@ -1,0 +1,41 @@
+<!-- 
+    Name: Saurabh Kale
+    ASU ID: 1223450319
+    Datae: 9/12/2023
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Customer List</title>
+     <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file for styling -->
+ </head>
+ <body>
+     <h1>Customer List</h1>
+     <table>
+         <thead>
+             <tr>
+                 <th>Customer ID</th>
+                 <th>First Name</th>
+                 <th>Last Name</th>
+                 <th>Email Address</th>
+                 <th>Phone</th>
+                 <th>Company Name</th>
+             </tr>
+         </thead>
+         <tbody>
+             <% data.forEach(customer => { %>
+                 <tr>
+                     <td><%= customer.CustomerID %></td>
+                     <td><%= customer.FirstName %></td>
+                     <td><%= customer.LastName %></td>
+                     <td><%= customer.EmailAddress %></td>
+                     <td><%= customer.Phone %></td>
+                     <td><%= customer.CompanyName %></td>
+                 </tr>
+             <% }); %>
+         </tbody>
+     </table>
+ </body>
+ </html>
+ 

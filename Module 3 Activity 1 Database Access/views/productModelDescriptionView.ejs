@@ -1,0 +1,39 @@
+<!-- 
+    Name: Saurabh Kale
+    ASU ID: 1223450319
+    Datae: 9/12/2023
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Product MD List</title>
+     <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file for styling -->
+ </head>
+ <body>
+     <h1>Product Model and Description Join List</h1>
+     <table>
+         <thead>
+             <tr>
+                 <th>ProductID</th>
+                 <th>Name</th>
+                 <th>ProductModelID</th>
+                 <th>ProductCategoryID</th>
+                 <th>Culture</th>
+                 </tr>
+         </thead>
+         <tbody>
+             <% data.forEach(productMC => { %>
+                 <tr>
+                    <td><%= productMC.ProductID %></td>
+                    <td><%= productMC.Name %></td>
+                    <td><%= productMC.ProductModelID %></td>
+                    <td><%= productMC.ProductCategoryID %></td>
+                    <td><%= productMC.Culture %></td>
+                 </tr>
+             <% }); %>
+         </tbody>
+     </table>
+ </body>
+ </html>
+ 

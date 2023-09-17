@@ -1,0 +1,39 @@
+<!-- 
+    Name: Saurabh Kale
+    ASU ID: 1223450319
+    Datae: 9/12/2023
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Addresss List</title>
+     <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file for styling -->
+ </head>
+ <body>
+     <h1>Addresss List</h1>
+     <table>
+         <thead>
+             <tr>
+                 <th>AddressLine1</th>
+                 <th>City</th>
+                 <th>State Province</th>
+                 <th>Country Region</th>
+                 <th>PostalCode</th>
+                 </tr>
+         </thead>
+         <tbody>
+             <% data.forEach(address => { %>
+                 <tr>
+                     <td><%= address.AddressLine1 %></td>
+                     <td><%= address.City %></td>
+                     <td><%= address.StateProvince %></td>
+                     <td><%= address.CountryRegion %></td>
+                     <td><%= address.PostalCode %></td>
+                 </tr>
+             <% }); %>
+         </tbody>
+     </table>
+ </body>
+ </html>
+ 

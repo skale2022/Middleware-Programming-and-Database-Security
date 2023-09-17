@@ -1,0 +1,37 @@
+<!-- 
+    Name: Saurabh Kale
+    ASU ID: 1223450319
+    Datae: 9/12/2023
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>Models List</title>
+     <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file for styling -->
+ </head>
+ <body>
+     <h1>Models List</h1>
+     <table>
+         <thead>
+             <tr>
+                 <th>Name</th>
+                 <!-- <th>Catalog Description</th> -->
+                 <th>Row guid</th>
+                 <th>Modified Date</th>
+                 </tr>
+         </thead>
+         <tbody>
+             <% data.forEach(model => { %>
+                 <tr>
+                     <td><%= model.Name %></td>
+                     <!-- <td><%= model.CatalogDescription %></td> -->
+                     <td><%= model.rowguid %></td>
+                     <td><%= model.ModifiedDate %></td>
+                 </tr>
+             <% }); %>
+         </tbody>
+     </table>
+ </body>
+ </html>
+ 
