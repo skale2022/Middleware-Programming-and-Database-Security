@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information Form</title>
+</head>
+<body>
+    <!-- This is the form for the user to input their data  -->
+    <!-- when the form is submitted it sends a POST request to the server at the specified action URL ("/") -->
+    <style>
+        form {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+        }
+        div {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+        }
+        #submitForm {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            background-color: white; 
+            color: black; 
+            border: 2px solid #4CAF50;
+        }
+        #submitForm:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <form action="/" method="POST">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName"><br><br>
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" name="middleName"><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName"><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+        <input type="submit" id="submitForm" value="submit">
+    </form>
+    <br>
+    <br>
+
+    <!-- This is where we'll display the submitted student data -->
+    <!-- EJS allows us to use Javascript in our HTML. Here, we loop over the 'students' array and create a new list item for each -->
+    <div>
+        <ul>
+            <% students.forEach(function(student) { %>
+                <li>
+                    <h2><%= student.firstName %> <%= student.middleName %> <%= student.lastName %></h2>
+                    <p>Address: <%= student.address %></p>
+                    <p>Phone: <%= student.phone %></p>
+                    <p>Email: <%= student.email %></p>
+                    <p>Description <%= student.description %></p>
+                </li>
+            <% }); %>
+        </ul>
+
+        <!-- THis is a link that allows the user to add more student data -->
+        <!-- when clicked, it sends a GET request to the server at the specified URL ("/") -->
+        <a href="/">Add New Student</a>
+    </div>
+</body>
+</html>
