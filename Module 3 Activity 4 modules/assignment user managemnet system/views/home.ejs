@@ -1,0 +1,56 @@
+<!-- Name: Saurabh
+ASU ID: 1223450319
+Date: 9/24/2023 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to User Management System Website</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/updateInfo">Change Info</a></li>
+                <li><a href="/updatePassword">Change Password</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <% if (typeof errorMessage !== 'undefined') { %>
+        <p style="color:red"><%= errorMessage %></p>
+    <% } %>
+
+    <% if (typeof successMessage !== 'undefined') { %>
+        <p style="color:green"><%= successMessage %></p>
+    <% } %>
+    <section>
+        <h2>About Us</h2>
+        <p>Welcome to our User Management System, where simplicity meets efficiency.
+            At the heart of our platform is a commitment to streamlining user administration, ensuring seamless access control, and enhancing security.
+            Join us on this journey of empowering businesses with user-centric solutions, and experience the ease of managing your digital identity.</p>
+    </section>
+
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Service 1</li>
+            <li>Service 2</li>
+            <li>Service 3</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact Us</h2>
+        <p>Email: skale12@asu.edu</p>
+        <p>Phone: +1 (123) 456-7890</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 User Management System</p>
+    </footer>
+</body>
+</html>

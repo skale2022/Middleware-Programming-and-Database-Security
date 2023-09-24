@@ -1,0 +1,29 @@
+<!-- Name: Saurabh
+ASU ID: 1223450319
+Date: 9/24/2023 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+    <% if (typeof errorMessage !== 'undefined') { %>
+        <p style="color:red"><%= errorMessage %></p>
+    <% } %>
+
+    <% if (typeof successMessage !== 'undefined') { %>
+        <p style="color:green"><%= successMessage %></p>
+    <% } %>
+</body>
+</html>
