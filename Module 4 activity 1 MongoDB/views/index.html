@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade and Student Management</title>
+</head>
+<body>
+    <h1>Welcome to Grade and Student Management</h1>
+
+    <h2>Grades</h2>
+    <button onclick="getGrades()">Get All Grades</button>
+    <button onclick="createGrade()">Create Grade</button>
+
+    <h3>Create a New Grade</h3>
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" placeholder="Math">
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" placeholder="A">
+    <label for="date">Date:</label>
+    <input type="text" id="date" placeholder="01/01/1990">
+    <button onclick="createGrade()">Submit</button>
+
+    <h2>Students</h2>
+    <button onclick="getStudents()">Get All Students</button>
+    <button onclick="createStudent()">Create Student</button>
+
+    <h3>Create a New Student</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="John Doe">
+    <label for="age">Age:</label>
+    <input type="text" id="age" placeholder="25">
+    <label for="birth">Birth Date:</label>
+    <input type="text" id="birth" placeholder="01/01/1990">
+    <button onclick="createStudent()">Submit</button>
+
+    <h3>Response:</h3>
+    <div id="response"></div>
+
+    <script>
+        function getGrades() {
+            fetch('/grade')
+                .then(response => response.json())
+                .then(data => {
+                    displayResponse(data,'allGrades');
+                });
+        }
+
+        function createGrade() {
+            const subject = document.getElementById('subject').value;
+            const grade = document.getElementById('grade').value;
+            const date = document.getElementById('date').value;
+
+            const newGrade = {
+                subject,
+                grade,
+                date
+            };
+
+            fetch('/grade', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newGrade),
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayResponse(data,'singleGrade');
+                document.getElementById('subject').value = '';
+                document.getElementById('grade').value = '';
+                document.getElementById('date').value = '';
+            });
+        }
+
+        function getStudents() {
+            fetch('/student')
+                .then(response => response.json())
+                .then(data => {
+                    displayResponse(data,'allStudents');
+                });
+        }
+
+        function createStudent() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const birth = document.getElementById('birth').value;
+
+            const newStudent = {
+                name,
+                age,
+                birth
+            };
+
+            fetch('/student', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newStudent),
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayResponse(data, 'singleStudent');
+                document.getElementById('name').value='';
+                document.getElementById('age').value='';
+                document.getElementById('birth').value='';
+            });
+        }
+
+        function displayResponse(data, type) {
+            const responseDiv = document.getElementById('response');
+            responseDiv.innerHTML = '';
+
+            if (data.status === 'success') {
+                var results= 1
+                if(type=='allStudents'||type=='allGrades')
+                    results = data.results;
+                if (results > 0 ) {
+                    const table = document.createElement('table');
+                    var headers = 0
+                    if(type=='allStudents')
+                        headers = Object.keys(data.data['students'][0]);
+                    else if(type=='allGrades')
+                        headers = Object.keys(data.data['grades'][0]);
+                    else
+                        headers = Object.keys(data.data);
+                    // Create table headers
+                    const headerRow = table.insertRow(0);
+                    headers.forEach(headerText => {
+                        const header = document.createElement('th');
+                        header.textContent = headerText;
+                        headerRow.appendChild(header);
+                    });
+
+                    var mainData;
+                    if(type=='allStudents')
+                        mainData = data.data['students'];
+                    else if(type=='allGrades')
+                        mainData = data.data['grades'];
+                    else
+                        mainData = [data.data];
+                    // Create table rows
+                    mainData.forEach(item => {
+                        const row = table.insertRow();
+                        headers.forEach(header => {
+                            const cell = row.insertCell();
+                            cell.textContent = item[header];
+                        });
+                    });
+
+                    responseDiv.appendChild(table);
+                } else {
+                    responseDiv.textContent = 'No data found.';
+                }
+            } else {
+                responseDiv.textContent = 'Error occurred.';
+            }
+        }
+    </script>
+</body>
+</html>
