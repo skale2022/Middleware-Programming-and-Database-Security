@@ -35,10 +35,16 @@ exports.deleteMe = async (req, res) => {
 };
 
 
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined!'
+exports.getUser = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById({ _id: id });
+  // SEND RESPONSE
+  res.status(200).json({
+    status: 'success',
+    results: user.length,
+    data: {
+      user
+    }
   });
 };
 exports.updateUser = (req, res) => {

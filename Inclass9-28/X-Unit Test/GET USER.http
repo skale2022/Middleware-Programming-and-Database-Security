@@ -1,1 +1,4 @@
 GET Http://localhost:3000/api/v1/users
+
+###
+GET Http://localhost:3000/api/v1/users/6515b46d76d34a92f41dfbff
