@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Edit Student</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+<h1>Edit <%=id%> Student</h1>
+<form action="/students/update" method="POST">
+<label for="name">Name:</label>
+<br> <input type="text" id="name" name="name">
+<br><label for="age">Age:</label><br> <input type="text" id="age" name="age">
+<br> <label for="email">Email:</label><br> <input type="text" id="email" name="email">
+<br> <input type="submit" value="Submit"> </form> <a href="/students">Go Back</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+datasource db {
+  provider = "mongodb"
+  url = "mongodb+srv://skale12:Bing_2905@cluster0.hi0evjq.mongodb.net/users"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model users {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  email  String   @unique
+  role   String
+}
