@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Students</title>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+<h1>List of Students</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% students.forEach(function(student) { %>
+            <tr>
+                <td><%= student.name %></td>
+                <td><%= student.age %></td>
+                <td><%= student.email %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+</body>
+</html>
