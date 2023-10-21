@@ -1,0 +1,43 @@
++-----------------+
+| Landing Page    |
+| - Register      |
+| - Login         |
+| - List of books |
++-----------------+
+        |
+        | (If not logged in)
+        v
++-----------------+
+| Register Page   |
++-----------------+
+        |
+        v
++-----------------+
+| Login Page      |
++-----------------+
+        |
+        | (If logged in)
+        v
++-----------------+
+| User Dashboard  |
+| - My Books      |
+| - Exchange Req. |
+| - Profile       |
+| - Logout        |
++-----------------+
+        |
+        +--> (Add/Edit Book)
+        |    +----------------+
+        |    | Add/Edit Book  |
+        |    +----------------+
+        |
+        +--> (View Book Details)
+        |    +----------------------+
+        |    | Book Details Page    |
+        |    +----------------------+
+        |
+        +--> (Exchange Request)
+             +---------------------+
+             | Exchange Request    |
+             +---------------------+
+

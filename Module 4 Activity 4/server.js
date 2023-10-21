@@ -9,6 +9,6 @@ app.listen(port, () => {
 
 
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}@${process.env.ATLAS_DBSERVER}/`,{useNewUrlParser: true})
+mongoose.connect(`mongodb+srv://${process.env.ATLAS_USERNAME}:${process.env.ATLAS_PASSWORD}@${process.env.ATLAS_DBSERVER}/${process.env.DATASET}`,{useNewUrlParser: true})
     .then(() => console.log(`MongoDB connection succeeeded`))
     .catch((err)=> console.log(`Error in DB Connection: `+err));

@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const ledgerSchema = new mongoose.Schema(
     {
+        customerID: {
+            type: mongoose.Types.ObjectId
+        },
+        loanID: {
+            type: mongoose.Types.ObjectId
+        },
         paymentAmount: {
             type: Number,
             required: [true, 'A payment amount is required'],
