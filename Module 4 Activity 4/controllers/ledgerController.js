@@ -57,7 +57,7 @@ exports.createLedger = async (req, res) => {
     // get particular loan details from database
     const newledgerData = req.body;
 
-    const newLedger = {...newledgerData};
+    const newLedger = newledgerData;
 
     try{
         const customerLedger = await ledgerModel.create(newLedger)

@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.defaultProfile.linux": "",
+    "terminal.integrated.env.windows": {},
+    "terminal.integrated.automationProfile.linux": {
+        
+    },
+    "terminal.integrated.automationProfile.windows": {
+        "terminal.integrated.shell.osx": "/bin/zsh"
+
+    }
+}
