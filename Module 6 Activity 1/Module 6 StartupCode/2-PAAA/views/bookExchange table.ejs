@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Exchange Platform - Available Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="currentDateTime"></div>
+ 
+    <script>
+        const dateTimeElement = document.getElementById('currentDateTime');
+        const currentDateTime = new Date().toLocaleString();
+ 
+        dateTimeElement.textContent = currentDateTime;
+    </script>
+
+    <h1>Your IP address is: <span id="ip-address"></span></h1>
+    
+    <script>
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address').textContent = data.ip;
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+            });
+    </script>
+    <header>
+        <h1>Book Exchange</h1>
+        <nav>
+            <% if (user) { %>
+                Welcome, <%= user.username %>!
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            <% } %>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Available Books for Exchange:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (sampleBooks && sampleBooks.length > 0) { %>
+                    <% sampleBooks.forEach(function(book) { %>
+                        <tr>
+                            <td><%= book.title %></td>
+                            <td><%= book.author %></td>
+                            <td><%= book.genre %></td>
+                            <td><%= book.description %></td>
+                            <td><%= book.price %></td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">No books available for exchange currently.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>Book Exchange Platform &copy; 2023</p>
+    </footer>
+</body>
+</html>
