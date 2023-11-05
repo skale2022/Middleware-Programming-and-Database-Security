@@ -1,0 +1,21 @@
+###
+GET http://localhost:4000/api/v1/books
+
+###
+GET http://localhost:4000/api/v1/books/6546e0a4ebb1d943d2dc9bda
+
+###
+POST http://localhost:4000/api/v1/books/add
+Content-Type: application/json
+
+{
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "author": "J.K. Rowling",
+    "description" : "More Information about Java",
+    "exchangeType": "borrow",
+    "user": "653f0affd7fee9d8b1aac5de",
+    "genre": "Fantasy",
+    "year": 1997
+}
+
+
