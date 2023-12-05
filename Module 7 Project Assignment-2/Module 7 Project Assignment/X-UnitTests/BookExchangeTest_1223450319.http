@@ -1,0 +1,143 @@
+@token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTkyMzNlZjFjMzI1OGNhYTY4OGIxYyIsImlhdCI6MTcwMDM0OTQ1OSwiZXhwIjoxNzAxMjEzNDU5fQ.P80ga55Z6qy6oqHnI09G9IL--QwjnRrvKmoW0SlcIPY"
+@baseUrl = http://localhost:4000
+GET {{baseUrl}}/books
+Cookie: jwt={{token}}
+# In this example, @token is a custom variable that holds your actual token. Replace your_actual_token_here with the token you have.
+###
+POST {{baseUrl}}/books
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Lord of the Rings",
+    "author": "J. R. R. Tolkien",
+    "description": "Fictional book",
+    "exchangeType": "borrow",
+    "status": "available"
+   
+}
+
+### Book 2
+POST {{baseUrl}}/books
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "Roaring Twenties drama and tragedy",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+
+### Book 3
+POST {{baseUrl}}/books
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "description": "Comic science fiction series",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+ 
+### Book 4
+POST {{baseUrl}}/books
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "description": "Coming-of-age novel with a rebellious protagonist",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+### Book 5
+POST {{baseUrl}}/books
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Hobbit",
+    "author": "J. R. R. Tolkien",
+    "description": "Adventure novel",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+#In this case, make sure to include the .env file in your .gitignore or equivalent to prevent committing sensitive information into version control.
+
+# For an even more secure approach, you can use system environment variables or secret management tools to handle sensitive data like tokens, especially if you're working in a team or a shared environment. These tokens should be secured and only made available to the environments that require them, such as your local development environment or a secure CI/CD pipeline.
+
+
+### Sample Test: Retrieve all books
+GET http://localhost:4000/books HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Fetch book by ID - 1
+GET http://localhost:4000/books/65595098618c314917481954 HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Fetch book by ID - 2
+GET http://localhost:4000/books/65595076618c314917481951 HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Fetch book by ID - 3
+GET http://localhost:4000/books/65595054618c31491748194e HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Modify book by ID - 1
+PUT http://localhost:4000/books/update/65595054618c31491748194e HTTP/1.1
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "description": "Witty and absurd science fiction comedy",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+### Sample Test: Modify book by ID - 2
+PUT http://localhost:4000/books/update/65595076618c314917481951 HTTP/1.1
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "description": "Classic coming-of-age novel",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+### Sample Test: Modify book by ID - 1
+PUT http://localhost:4000/books/update/65595098618c314917481954 HTTP/1.1
+Content-Type: application/json
+Cookie: jwt={{token}}
+
+{
+    "title": "The Hobbit",
+    "author": "J. R. R. Tolkien",
+    "description": "Fantasy novel",
+    "exchangeType": "borrow",
+    "status": "available"
+}
+
+### Sample Test: Delete book by ID - 1
+DELETE http://localhost:4000/books/delete/65595054618c31491748194e HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Delete book by ID - 2
+DELETE http://localhost:4000/books/delete/65595076618c314917481951 HTTP/1.1
+Cookie: jwt={{token}}
+
+### Sample Test: Delete book by ID - 3
+DELETE http://localhost:4000/books/delete/65595098618c314917481954 HTTP/1.1
+Cookie: jwt={{token}}

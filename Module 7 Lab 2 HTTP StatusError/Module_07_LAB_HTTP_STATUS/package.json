@@ -1,0 +1,14 @@
+{
+  "name": "module_07_lab_http_status",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saurabh Kale",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

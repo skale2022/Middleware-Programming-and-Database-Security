@@ -7,5 +7,6 @@
     "terminal.integrated.automationProfile.windows": {
         "terminal.integrated.shell.osx": "/bin/zsh"
 
-    }
+    },
+    "git.ignoreLimitWarning": true
 }
